@@ -1,5 +1,10 @@
-fetch('output.json')  // This will now work if output.json is in the docs folder
-  .then(response => response.json())
+fetch('output.json')  // Updated to fetch from the same directory
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.json();
+  })
   .then(data => {
     const table = document.getElementById('data-table');
     const labels = [];
@@ -23,4 +28,5 @@ fetch('output.json')  // This will now work if output.json is in the docs folder
         }]
       }
     });
-  });
+  })
+  .catch(error => console.error('Error loading JSON:', error));
