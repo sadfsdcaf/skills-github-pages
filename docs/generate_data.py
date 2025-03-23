@@ -1,8 +1,9 @@
+# generate_data.py
 import json
 import random
 import os
 
-# Ensure data directory exists
+# Ensure root directory (for GitHub Action output) exists
 os.makedirs("docs", exist_ok=True)
 
 # Generate example data with random values
