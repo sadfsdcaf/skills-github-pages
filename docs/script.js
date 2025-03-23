@@ -1,4 +1,5 @@
-fetch('../data/output.json')
+
+fetch('output.json')  // Changed relative path to work from Pages root
   .then(response => response.json())
   .then(data => {
     const table = document.getElementById('data-table');
